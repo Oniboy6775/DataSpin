@@ -13,17 +13,14 @@ function Profile() {
     isNotificationCheck,
     clearNotification,
   } = useGlobalContext();
-
   useEffect(() => {
     getNotification();
   }, []);
-
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--primary-100)] dark:bg-[var(--primary-900)] transition-colors duration-300">
-      {/* ✅ Notification Modal */}
+    <div className=" min-h-[calc(100vh_-_50px)] m-auto relative">
       {!isNotificationCheck && notification && (
         <Modal
-          title="Notifications"
+          title="notifications"
           children={notification}
           buttons={[
             {
@@ -34,25 +31,12 @@ function Profile() {
           ]}
         />
       )}
-
-      {/* ✅ Header */}
       <ProfileHeader isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-
-      {/* ✅ Main Layout */}
-      <div className="flex flex-1 w-full overflow-hidden">
-        {/* Sidebar */}
-        <aside
-          className={`transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "w-64" : "w-0"
-          } hidden md:block bg-[var(--primary-200)] dark:bg-[var(--primary-800)] shadow-lg overflow-y-auto`}
-        >
-          <SideMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-        </aside>
-
-        {/* ✅ Content Area */}
-        <main className="flex-1 mt-[4rem] md:mt-0 overflow-y-auto p-4 md:p-6 rounded-t-2xl bg-white dark:bg-[var(--primary-950)] shadow-inner">
+      <div className="min-h-full flex self-stretch">
+        <SideMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        <div className="mt-[4rem] md:ml-[3rem] p-4 w-full min-h-full mx-2 ">
           <Outlet />
-        </main>
+        </div>
       </div>
     </div>
   );
