@@ -110,7 +110,7 @@ const DashBoard = () => {
           </div>
         ))}
 
-        {!isLoading &&
+        {/* {!isLoading &&
           !user?.accountNumbers?.find((e) => e.bankName === "palmpay") && (
             <div
               onClick={() => generateAccount("palmpay")}
@@ -125,7 +125,7 @@ const DashBoard = () => {
                 Get Palmpay Acc
               </p>
             </div>
-          )}
+          )} */}
       </section>
 
       {/* REFERRAL CARD */}
