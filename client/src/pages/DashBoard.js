@@ -25,11 +25,11 @@ const DashBoard = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   // Auto-open KYC modal if BVN/NIN missing
-  useEffect(() => {
-    if (!isLoading && !user?.nin && !user?.bvn) {
-      setKycModal(true);
-    }
-  }, [isLoading, user?.nin, user?.bvn]);
+  // useEffect(() => {
+  //   if (!isLoading && !user?.nin && !user?.bvn) {
+  //     setKycModal(true);
+  //   }
+  // }, [isLoading, user?.nin, user?.bvn]);
 
   const copyReferralLink = async () => {
     const userName = encodeURIComponent(user.userName);
@@ -78,19 +78,19 @@ const DashBoard = () => {
           >
             Fund Wallet
           </button>
-          {!user?.bvn && !user?.nin && (
+          {/* {!user?.bvn && !user?.nin && (
             <button
               onClick={() => setKycModal(true)}
               className="btn btn-danger px-4 py-2 text-sm"
             >
               Update KYC
             </button>
-          )}
+          )} */}
         </div>
       </header>
 
       {/* KYC MODAL */}
-      {kycModal && <KYCModals close={() => setKycModal(false)} />}
+      {/*} {kycModal && <KYCModals close={() => setKycModal(false)} />}
 
       {/* NAVIGATION GRID */}
       <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
