@@ -61,6 +61,9 @@ const register = async (req, res) => {
     // generate account number
     await generateAcc({ userName, email });
     const user = await User.findOne({ email });
+    generateBillStackAcc({ bankName: "palmpay", userId: user._id });
+    generateBillStackAcc({ bankName: "9psb", userId: user._id });
+
     const token = user.createJWT();
     const allDataList = await Data.find();
     const MTN_SME_PRICE = allDataList
@@ -118,10 +121,7 @@ const register = async (req, res) => {
         NETWORK: network,
       },
     });
-    // if (referredBy) newReferral(req.body);
-    if (referredBy) {
-      addReferral({ userName, sponsorId: referredBy });
-    }
+    if (referredBy) newReferral(req.body);
 
     return;
   } catch (error) {
@@ -142,9 +142,16 @@ const login = async (req, res) => {
   if (!isPasswordCorrect)
     return res.status(400).json({ msg: "Incorrect password" });
   // generate account number
-  if (user.accountNumbers.length < 1)
-    await generateAcc({ userName, email: user.email });
-
+  const palmPayExist = user.accountNumbers.find((e) => e.bankName == "palmpay");
+  const NPayServiceBankExist = user.accountNumbers.find(
+    (e) => e.bankName == "9psb"
+  );
+  if (!palmPayExist) {
+    await generateBillStackAcc({ bankName: "palmpay", userId: user._id });
+  }
+  if (!NPayServiceBankExist) {
+    await generateBillStackAcc({ bankName: "9psb", userId: user._id });
+  }
   const token = user.createJWT();
   const isReseller = user.userType === "reseller";
   const isApiUser = user.userType === "api user";
@@ -250,18 +257,14 @@ const login = async (req, res) => {
 };
 
 const userData = async (req, res) => {
-  // return details of the user and purchase objects
   const { userId, userType } = req.user;
   const isReseller = userType === "reseller";
   const isApiUser = userType === "api user";
   let user = await User.findOne({ _id: userId });
-  // const data = await Data.find();
-  // console.log(data);
   const userTransaction = await Transaction.find({ trans_By: userId })
     .limit(10)
     .sort("-createdAt");
   const allDataList = await Data.find().sort("dataplan_id");
-  // const allDataList = MTN_SME;
 
   const MTN_SME_PRICE = allDataList
     .filter((e) => e.plan_network === "MTN")
@@ -327,11 +330,7 @@ const userData = async (req, res) => {
     user,
     transactions: userTransaction,
     isAdmin: userId === process.env.ADMIN_ID ? true : false,
-    isCouponVendor:
-      userId === process.env.COUPON_VENDOR_FAIZ ||
-      userId === process.env.COUPON_VENDOR_YUSUF
-        ? true
-        : false,
+
     subscriptionPlans: {
       MTN: MTN_SME_PRICE,
       GLO: GLO_PRICE,
