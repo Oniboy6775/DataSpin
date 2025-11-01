@@ -10,6 +10,10 @@ const path = require("path");
 
 const DataModel = require("./Models/dataModel");
 
+// Importing cron job
+const cronJob = require("./config/cron");
+// if (process.env.NODE_ENV === "production") job.start();
+cronJob.start();
 // const __dirname = dirname(fileURLToPath(import.meta.url));
 // ROUTERS
 const purchaseRouter = require("./Routes/purchaseRouter");
