@@ -240,19 +240,16 @@ const Landing = () => {
           })}
         </Accordion>
       </section>
-      <section className="mt-5 bg-black   text-white border items-center pb-[4rem]">
-        <div className="p-4  max-w-[1300px] m-auto w-11/12">
-          <div className=" flex justify-between gap-8 md:gap-0 items-center capitalize mb-4">
-            {/* <div className="hiddenmd:flex md:flex-col gap-2">
-
-            </div> */}
-            <div className="rounded-full w-10/12 sm:w-64 md:flex md:flex-col items-start justify-start relative">
+      <section className="mt-5 bg-black text-white border items-center pb-[4rem]">
+        <div className="p-4 max-w-[1300px] m-auto w-11/12">
+          <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-0 items-center capitalize mb-4">
+            <div className="rounded-full w-full sm:w-64 md:flex md:flex-col items-start justify-start relative">
               <img
                 src="./assets/dataspin-logo.png"
                 alt=""
-                className="img w-full"
+                className="md:img w-48"
               />
-              <span className="absolute top-10 left-6 md:top-16 md:left-6">
+              <span className="absolute top-10 left-6 md:top-16 md:left-5">
                 <a
                   className="text-white text-xs md:text-base"
                   href="https://castush.com.ng/"
@@ -262,7 +259,7 @@ const Landing = () => {
                 </a>
               </span>
             </div>
-            <div className="">
+            <div className="hidden md:block">
               <ul className="underline">
                 {links.map((e, index) => {
                   return (
