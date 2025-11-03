@@ -243,8 +243,24 @@ const Landing = () => {
       <section className="mt-5 bg-black   text-white border items-center pb-[4rem]">
         <div className="p-4  max-w-[1300px] m-auto w-11/12">
           <div className=" flex justify-between gap-8 md:gap-0 items-center capitalize mb-4">
-            <div className="rounded-full hidden w-48 sm:w-64 md:block">
-              <img src="./assets/dataspin-logo.png" alt="" className="img" />
+            {/* <div className="hiddenmd:flex md:flex-col gap-2">
+
+            </div> */}
+            <div className="rounded-full w-10/12 sm:w-64 md:flex md:flex-col items-start justify-start relative">
+              <img
+                src="./assets/dataspin-logo.png"
+                alt=""
+                className="img w-full"
+              />
+              <span className="absolute top-10 left-6 md:top-16 md:left-6">
+                <a
+                  className="text-white text-xs md:text-base"
+                  href="https://castush.com.ng/"
+                  target="blank"
+                >
+                  A product of Castush
+                </a>
+              </span>
             </div>
             <div className="">
               <ul className="underline">
