@@ -266,18 +266,18 @@ const Landing = () => {
               <div className=" ">
                 <p className="uppercase text-blue-500">Office address</p>
                 <p>
-                  Address No 18 behind Alh Ayo House sawmill area
-                  Ilorin, kwara state
+                  Office 3, 2nd Floor, Ibiyo Plaza Lajorin (By High Court
+                  Junction), Offa Road, Ilorin, Kwara State
                 </p>
               </div>
               <div className=" ">
                 <p className="uppercase text-blue-500">phone number</p>
-                <p>07031362263</p>
+                <p>09014736446</p>
               </div>
               <div className=" lowercase">
                 <p className="uppercase text-blue-500">Contact us</p>
-                <p>admin@dataSpin.com.ng</p>
-                <p>manmadenumber@gmail.com</p>
+                <p>dataspin.vtu@gmail.com</p>
+                <p>hello@castush.com.ng</p>
               </div>
             </div>
           </div>
@@ -286,10 +286,10 @@ const Landing = () => {
             developed by{" "}
             <a
               className="text-blue-500"
-              href="https://onisabi-portfolio.netlify.app/"
+              href="https://castush.com.ng/"
               target="blank"
             >
-              Oniboy
+              Castush Integrated Limited
             </a>
           </p>
         </div>
