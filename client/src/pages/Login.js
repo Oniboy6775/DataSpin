@@ -6,7 +6,7 @@ import { BsEyeSlash } from "react-icons/bs";
 import { HiMail } from "react-icons/hi";
 import { toast } from "react-toastify";
 import { useGlobalContext } from "../context/UserContext";
-import logo from "../images/logo.png";
+import logo from "../images/logo.jpg";
 import LandingNav from "../components/LandingNav";
 import FormInput from "../components/FormInput";
 import styled from "styled-components";

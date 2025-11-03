@@ -11,12 +11,12 @@ const WelcomeBanner = () => {
             className="mb-2 flex items-center border-gray-200 dark:border-gray-600 md:mb-0 md:mr-4 md:border-r md:pr-4"
           >
             <img
-              src="/assets/logo.png"
+              src="/assets/logo.jpg"
               className="mr-2 h-6"
               alt="Flowbite Logo"
             />
-            <span className="self-center whitespace-nowrap text-lg font-semibold dark:text-white md:pr-6">
-              dataSpin
+            <span className="self-center whitespace-nowrap text-[var(--primary-600)] text-lg font-semibold dark:text-white md:pr-6">
+              DataSpin
             </span>
           </a>
           <p className="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">

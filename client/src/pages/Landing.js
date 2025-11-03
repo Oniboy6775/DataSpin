@@ -145,7 +145,7 @@ const Landing = () => {
         <div className="skewed"></div>
       </section>
       <section className="mt-[80px]  m-auto  max-w-[var(--max-width)]  flex flex-col md:flex-row md:items-stretch gap-4 w-10/12 h-full">
-        <div className="md:w-6/12 ">
+        <div className="md:w-6/12 mt-20">
           <h1 className="font-extrabold text-transparent text-center md:text-6xl bg-clip-text bg-gradient-to-r from-purple-600 to-pink-400">
             {" "}
             {token ? `Hi ${user.userName}, ` : ""}Welcome to dataSpin
@@ -154,7 +154,7 @@ const Landing = () => {
             A technology platform that offers solutions to digital needs at best
             possible price without compromising quality.
           </p>
-          <ButtonGroup className=" flex justify-center gap-4">
+          <ButtonGroup className=" flex justify-center gap-4 m-10">
             <Button
               // size="sm"
               // isProcessing
@@ -243,8 +243,8 @@ const Landing = () => {
       <section className="mt-5 bg-black   text-white border items-center pb-[4rem]">
         <div className="p-4  max-w-[1300px] m-auto w-11/12">
           <div className=" flex justify-between gap-8 md:gap-0 items-center capitalize mb-4">
-            <div className="rounded-full hidden w-48 md:block">
-              <img src="./assets/logo.png" alt="" className="img" />
+            <div className="rounded-full hidden w-48 sm:w-64 md:block">
+              <img src="./assets/dataspin-logo.png" alt="" className="img" />
             </div>
             <div className="">
               <ul className="underline">
