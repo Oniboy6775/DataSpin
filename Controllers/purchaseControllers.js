@@ -169,16 +169,16 @@ const buyAirtime = async (req, res) => {
 };
 const buyData = async (req, res) => {
   const {
-    user: { userId, userType },
+    user: { userId },
     body: { plan, mobile_number, network },
   } = req;
   // console.log(req.body);
-  const isReseller = userType === "reseller";
-  const isApiUser = userType === "api user";
   if (!plan || !mobile_number || !network)
     return res.status(400).json({ msg: "All fields are required" });
   const user = await User.findOne({ _id: userId });
-  const { balance } = user;
+  const { balance, userType } = user;
+  const isReseller = userType === "reseller";
+  const isApiUser = userType === "api user";
   const dataTobuy = await Data.findOne({ id: plan });
   if (!dataTobuy)
     return res.status(400).json({ msg: "This data is not available" });
